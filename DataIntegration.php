@@ -58,7 +58,6 @@ else
 
 
 
-//$newArr=array_values($newArr);
 $finalarray[$replaceVal]=$newArr;
 }
 
@@ -72,8 +71,6 @@ $manufacturerVal=strtolower(trim($productVal["manufacturer"]));
 $modelVal=strtolower(trim($productVal["model"]));
 if(array_key_exists($manufacturerVal, $finalarray))
 {
-//$filtered_array = array_filter($finalarray[$manufacturerVal], function($a) use ($manufacturerVal, $modelVal){ return stristr($a['title'],$manufacturerVal)!==false && stristr($a['title'],$modelVal)!==false;});
-
 //Check 
 //1. If manufacturer name and model is in title 
 //2. If model is a number then it should not be part of another number e.g.: 600 is not equal to 1600
