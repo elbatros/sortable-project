@@ -89,9 +89,14 @@ $finalProductArray[] = array('product_name'=> $productVal["product_name"], 'list
 
 }
 
+//Encoding values
+$jsonEncodeValues=json_encode(array_values($finalProductArray));
+$writeValueToJSON=substr($jsonEncodeValues,1,-1);
+$writeValueToJSON=str_replace(",{\"product_name\"","\r\n{\"product_name\"",$writeValueToJSON);
+
 //Write to a JSON
-$fp = fopen('results.json', 'w');
-fwrite($fp, json_encode(array_values($finalProductArray)));
+$fp = fopen('results.txt', 'w');
+fwrite($fp, $writeValueToJSON);
 fclose($fp);
 }
 
